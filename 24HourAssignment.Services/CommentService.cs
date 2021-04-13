@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace _24HourAssignment.Services
 {
-    public class Class1
+    public class CommentService
     {
+
     }
 }
