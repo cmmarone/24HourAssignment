@@ -14,12 +14,12 @@ namespace _24HourAssignment.Data
         public int ReplyId { get; set; }
 
         [ForeignKey(nameof(Comment))]
-        public int CommentId { get; set; }
+        public int? CommentId { get; set; }
 
         public virtual Comment Comment { get; set; }
 
         [Required]
-        public string CommentText { get; set; }
+        public string ReplyText { get; set; }
 
         [Required]
         public  Guid AuthorId { get; set; }
