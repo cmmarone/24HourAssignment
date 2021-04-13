@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace _24HourAssignment.Models
 {
-    public class Class1
+   public class PostEdit
     {
+     
+        public string PostTitle { get; set; }
+
+        public string Text { get; set; }
+
     }
 }
