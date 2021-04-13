@@ -5,25 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _24HourAssignment.Data
+namespace _24HourAssignment.Models
 {
-    public class Post
+    public class PostCreate
     {
-        
-        [Key]
-        public int PostId { get; set; }
         [Required]
         public string PostTitle { get; set; }
 
         [Required]
         public string Text { get; set; }
 
-        public virtual List<Comment> Comments { get; set; }
-
-        [Required]
-        public Guid AuthorId { get; set; }
-
-        
     }
 }
-
