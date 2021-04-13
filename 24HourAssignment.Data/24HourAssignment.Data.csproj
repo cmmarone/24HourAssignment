@@ -84,14 +84,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Comment.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Migrations\202104131345340_InitialMigration.cs" />
     <Compile Include="Migrations\202104131345340_InitialMigration.Designer.cs">
       <DependentUpon>202104131345340_InitialMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reply.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
