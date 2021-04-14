@@ -23,7 +23,7 @@ namespace _24HourAssignment.Data
         [Required]
         public Guid AuthorId { get; set; }
 
-        
+     
     }
 }
 
