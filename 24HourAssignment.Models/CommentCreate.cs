@@ -12,7 +12,7 @@ namespace _24HourAssignment.Models
     public class CommentCreate
     {
         [Required]
-        public string CommentText { get; set; }
+        public string ReplyText { get; set; }
 
         public int PostId { get; set; }
         public virtual Post Post { get; set; }

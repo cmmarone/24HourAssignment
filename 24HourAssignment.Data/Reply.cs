@@ -22,8 +22,7 @@ namespace _24HourAssignment.Data
         public string ReplyText { get; set; }
 
         [Required]
-        public  Guid AuthorId { get; set; }
-
+        public Guid AuthorId { get; set; }
 
     }
 }

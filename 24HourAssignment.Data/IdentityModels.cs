@@ -29,6 +29,7 @@ namespace _24HourAssignment.Data
         }
         
         public static ApplicationDbContext Create()
+
         {
             return new ApplicationDbContext();
         }

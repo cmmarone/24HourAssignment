@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace _24HourAssignment.Data
 {
-    public class Post
+   public class Post
     {
-        
         [Key]
         public int PostId { get; set; }
         [Required]
@@ -23,7 +22,6 @@ namespace _24HourAssignment.Data
         [Required]
         public Guid AuthorId { get; set; }
 
-        
+
     }
 }
-
