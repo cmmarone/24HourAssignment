@@ -85,14 +85,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Comment.cs" />
-
-    <Compile Include="Post.cs" />
-    <Compile Include="Reply.cs" />
-
-
-    <Compile Include="Post.cs" />
-
-
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Migrations\202104131345340_InitialMigration.cs" />
     <Compile Include="Migrations\202104131345340_InitialMigration.Designer.cs">
