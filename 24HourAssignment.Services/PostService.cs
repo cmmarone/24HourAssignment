@@ -8,95 +8,98 @@ using System.Threading.Tasks;
 
 namespace _24HourAssignment.Services
 {
-    public class CommentService
+
+    public class PostService
     {
         private readonly Guid _userId;
 
-        public CommentService(Guid userId)
+        public PostService(Guid userId)
         {
             _userId = userId;
         }
 
-        public bool CreateComment(CommentCreate model)
+        public bool CreatePost(PostCreate model)
         {
-            var entity = new Comment()
+            var entity = new Post()
             {
-                CommentAuthorId = _userId,
-                CommentText = model.CommentText
+                AuthorId = _userId,
+                PostTitle = model.PostTitle,
+                Text = model.Text
             };
 
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Comments.Add(entity);
+                ctx.Posts.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
 
-        public IEnumerable<CommentListItem> GetComments()
+        public IEnumerable<PostListItem> GetPosts()
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
-                        .Comments
-                        .Where(e => e.CommentAuthorId == _userId)
+                        .Posts
+                        .Where(e => e.AuthorId == _userId)
                         .Select(
                             e =>
-                                new CommentListItem
+                                new PostListItem
                                 {
-                                    CommentText = e.CommentText
+                                    PostTitle = e.PostTitle
                                 }
                         );
                 return query.ToArray();
             }
         }
 
-        public CommentDetail GetCommentById(int id)
+        public PostDetail GetPostById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                        .Comments
-                        .Single(e => e.CommentId == id && e.CommentAuthorId == _userId);
+                        .Posts
+                        .Single(e => e.PostId == id && e.AuthorId == _userId);
                 return
-                    new CommentDetail
+                    new PostDetail
                     {
-                        CommentText = entity.CommentText,
-                        Replies = entity.Replies,
-                        PostId = entity.PostId
+                        PostTitle = entity.PostTitle,
+                        Text = entity.Text,
+                        Comments = entity.Comments
                     };
             }
         }
 
-        public bool UpdateComment(CommentEdit model)
+        public bool UpdatePost(PostEdit model)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                        .Comments
-                        .Single(e => e.CommentId == model.CommentId && e.CommentAuthorId == _userId);
-                entity.CommentText = model.CommentText;
+                        .Posts
+                        .Single(e => e.PostId == model.PostId && e.AuthorId == _userId);
+                entity.PostTitle = model.PostTitle;
+                entity.Text = entity.Text;
 
                 return ctx.SaveChanges() == 1;
             }
         }
 
-        public bool DeleteComment(int commentId)
+        public bool DeletePost(int postId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                        .Comments
-                        .Single(e => e.CommentId == commentId && e.CommentAuthorId == _userId);
+                        .Posts
+                        .Single(e => e.PostId == postId && e.AuthorId == _userId);
 
-                ctx.Comments.Remove(entity);
+                ctx.Posts.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
             }
         }
     }
-}
 
+}
